@@ -11,6 +11,7 @@ const buttonVariants = cva(
       variant: {
         default:
           "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+        pastelPrimary: "bg-[#E7E6FA] hover:opacity/90 text-primary",
         blueActive: "bg-[#2563EB] text-white hover:opacity/90",
         blue: "bg-[#DBEAFE] text-[#2563EB] hover:opacity/90",
         destructive:

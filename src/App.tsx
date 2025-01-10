@@ -1,6 +1,7 @@
 import { Calendar, Plus, SlidersHorizontal } from "lucide-react";
 import { Button } from "./components/ui/button";
 import { DataTable } from "./customs/data-table";
+import { NewModelDialog } from "./customs/new-model-dialog";
 import SearchInputBox from "./customs/search-input-box";
 
 function App() {
@@ -8,13 +9,15 @@ function App() {
     <div className="p-[20px] rounded-md bg-white flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <h2 className="font-semibold">Model Library</h2>
-        <Button
-          variant="default"
-          className="flex items-center justify-center gap-2 rounded-lg"
-        >
-          <Plus />
-          Create New Model
-        </Button>
+        <NewModelDialog>
+          <Button
+            variant="default"
+            className="flex items-center justify-center gap-2 rounded-lg"
+          >
+            <Plus />
+            Create New Model
+          </Button>
+        </NewModelDialog>
       </div>
       <div className="flex items-center justify-between gap-2">
         <SearchInputBox
