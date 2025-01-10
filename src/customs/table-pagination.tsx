@@ -40,8 +40,10 @@ export const TablePagination = ({
             <PaginationItem>
               <Button
                 size="icon"
-                className="rounded-full"
-                variant={active === item ? "default" : "ghost"}
+                className={classNames("rounded-full", {
+                  "text-[#2563EB]": active !== item,
+                })}
+                variant={active === item ? "blueActive" : "ghost"}
                 onClick={() => {
                   tableConfig.setPageIndex(item - 1);
                   setActive(item);
