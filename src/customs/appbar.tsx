@@ -1,4 +1,4 @@
-import { Bell, Heart } from "lucide-react";
+import { Bell, Command, Heart } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import { Button } from "../components/ui/button";
 import {
@@ -16,7 +16,14 @@ export const Appbar = () => {
   return (
     <div className="bg-white h-[92px] flex items-center justify-between w-full p-[24px] shadow-md">
       <h2 className="font-semibold">AI/ML Model Builder</h2>
-      <SearchInputBox />
+      <SearchInputBox
+        placeholder="Search"
+        endText={
+          <div className="flex items-center gap-2">
+            <Command width={16} /> K
+          </div>
+        }
+      />
       <div className="flex items-center gap-5">
         <div className="flex items-center gap-3 mr-3">
           <IconButton icon={<Bell />} badgeText="2" />
