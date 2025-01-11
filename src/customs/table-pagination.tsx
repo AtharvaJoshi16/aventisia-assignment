@@ -1,6 +1,6 @@
 import { Table } from "@tanstack/react-table";
 import classNames from "classnames";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../components/ui/button";
 import {
   Pagination,
@@ -9,7 +9,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "../components/ui/pagination";
-import { TABLE_DATA, TableData } from "../constants/data";
+import { TableData } from "../constants/data";
 
 export const TablePagination = ({
   tableConfig,
@@ -19,7 +19,14 @@ export const TablePagination = ({
   pageIndex: number;
 }) => {
   const [active, setActive] = useState(1);
-  const paginationCount = Math.round(TABLE_DATA.length / 5);
+  const paginationCount =
+    tableConfig.getRowCount() >= 5
+      ? Math.round(tableConfig.getRowCount() / 5)
+      : 1;
+
+  useEffect(() => {
+    paginationCount < 5 && setActive(1);
+  }, [paginationCount]);
   return (
     <Pagination>
       <PaginationContent>
